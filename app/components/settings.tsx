@@ -54,7 +54,7 @@ export function Settings(props: { closeSettings: () => void }) {
       state.updateConfig,
       state.resetConfig,
       state.clearAllData,
-    ]
+    ],
   );
 
   const updateStore = useUpdateStore();
@@ -77,7 +77,7 @@ export function Settings(props: { closeSettings: () => void }) {
   const accessStore = useAccessStore();
   const enabledAccessControl = useMemo(
     () => accessStore.enabledAccessControl(),
-    []
+    [],
   );
 
   const promptStore = usePromptStore();
@@ -148,7 +148,7 @@ export function Settings(props: { closeSettings: () => void }) {
             </Popover>
           </SettingItem>
 
-          <SettingItem
+          {/* <SettingItem
             title={Locale.Settings.Update.Version(currentId)}
             subTitle={
               checkingUpdate
@@ -171,7 +171,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 onClick={() => checkUpdate(true)}
               />
             )}
-          </SettingItem>
+          </SettingItem> */}
 
           <SettingItem title={Locale.Settings.SendKey}>
             <select
@@ -179,7 +179,7 @@ export function Settings(props: { closeSettings: () => void }) {
               onChange={(e) => {
                 updateConfig(
                   (config) =>
-                    (config.submitKey = e.target.value as any as SubmitKey)
+                    (config.submitKey = e.target.value as any as SubmitKey),
                 );
               }}
             >
@@ -199,7 +199,7 @@ export function Settings(props: { closeSettings: () => void }) {
               value={config.theme}
               onChange={(e) => {
                 updateConfig(
-                  (config) => (config.theme = e.target.value as any as Theme)
+                  (config) => (config.theme = e.target.value as any as Theme),
                 );
               }}
             >
@@ -233,7 +233,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 checked={config.tightBorder}
                 onChange={(e) =>
                   updateConfig(
-                    (config) => (config.tightBorder = e.currentTarget.checked)
+                    (config) => (config.tightBorder = e.currentTarget.checked),
                   )
                 }
               ></input>
@@ -251,7 +251,7 @@ export function Settings(props: { closeSettings: () => void }) {
               onChange={(e) =>
                 updateConfig(
                   (config) =>
-                    (config.disablePromptHint = e.currentTarget.checked)
+                    (config.disablePromptHint = e.currentTarget.checked),
                 )
               }
             ></input>
@@ -261,7 +261,7 @@ export function Settings(props: { closeSettings: () => void }) {
             title={Locale.Settings.Prompt.List}
             subTitle={Locale.Settings.Prompt.ListCount(
               builtinCount,
-              customCount
+              customCount,
             )}
           >
             <IconButton
@@ -290,7 +290,7 @@ export function Settings(props: { closeSettings: () => void }) {
             <></>
           )}
 
-          <SettingItem
+          {/* <SettingItem
             title={Locale.Settings.Token.Title}
             subTitle={Locale.Settings.Token.SubTitle}
           >
@@ -302,7 +302,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 accessStore.updateToken(e.currentTarget.value);
               }}
             ></input>
-          </SettingItem>
+          </SettingItem> */}
 
           <SettingItem
             title={Locale.Settings.HistoryCount.Title}
@@ -318,7 +318,7 @@ export function Settings(props: { closeSettings: () => void }) {
               onChange={(e) =>
                 updateConfig(
                   (config) =>
-                    (config.historyMessageCount = e.target.valueAsNumber)
+                    (config.historyMessageCount = e.target.valueAsNumber),
                 )
               }
             ></input>
@@ -337,7 +337,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 updateConfig(
                   (config) =>
                     (config.compressMessageLengthThreshold =
-                      e.currentTarget.valueAsNumber)
+                      e.currentTarget.valueAsNumber),
                 )
               }
             ></input>
@@ -350,7 +350,8 @@ export function Settings(props: { closeSettings: () => void }) {
               value={config.modelConfig.model}
               onChange={(e) => {
                 updateConfig(
-                  (config) => (config.modelConfig.model = e.currentTarget.value)
+                  (config) =>
+                    (config.modelConfig.model = e.currentTarget.value),
                 );
               }}
             >
@@ -375,7 +376,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 updateConfig(
                   (config) =>
                     (config.modelConfig.temperature =
-                      e.currentTarget.valueAsNumber)
+                      e.currentTarget.valueAsNumber),
                 );
               }}
             ></input>
@@ -393,7 +394,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 updateConfig(
                   (config) =>
                     (config.modelConfig.max_tokens =
-                      e.currentTarget.valueAsNumber)
+                      e.currentTarget.valueAsNumber),
                 )
               }
             ></input>
@@ -412,7 +413,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 updateConfig(
                   (config) =>
                     (config.modelConfig.presence_penalty =
-                      e.currentTarget.valueAsNumber)
+                      e.currentTarget.valueAsNumber),
                 );
               }}
             ></input>
